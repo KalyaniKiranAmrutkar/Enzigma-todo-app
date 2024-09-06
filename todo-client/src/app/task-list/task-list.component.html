@@ -1,0 +1,34 @@
+<p>task-list works!</p>
+
+<div class="container mt-4">
+  <h2>To-Do List</h2>
+  
+  <!-- Responsive Table for Task List -->
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Completed</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>
+            <input type="checkbox" [checked]="task.completed" disabled />
+          </td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="editTask(task._id)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteTask(task._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
